@@ -15,6 +15,13 @@ Open your terminal window, run the following commands:
 ```
 git clone https://github.com/QianXuX/Nodephilipshue/
 npm install
+```
+open hue-express-new.js, substitute 
+
+``` urlOri = "http://192.168.1.6/api/cJ23p6wZNUarNRb5Y6SsY5aCyDhVRaIjtg2qC5Xh/lights/";``` with your actual hue bridge ip address. 
+
+Then, run:
+```
 node hue-express-new.js
 ```
 
