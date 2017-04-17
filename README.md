@@ -13,6 +13,7 @@ node hue-express-new.js
 
 ## how to use
 Open your browser and go to http://localhost:9100/ to start the web app.
+<img src="home.png" alt="web app home" width="150">
 
 ## functions
 - All lights page shows all connected light bulb devices 
