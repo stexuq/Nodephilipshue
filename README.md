@@ -18,7 +18,13 @@ Open your browser and go to http://localhost:9100/ to start the web app.
 
 ## functions
 - All lights page shows all connected light bulb devices 
+
+<img src="alllights.png" alt="web app home" width="750">
+
 - Browse a particular light bulb by clicking the associated link 
+
+<img src="singlelight.png" alt="web app home" width="750">
+
   1. View detailed information of a single light bulb
   2. Change the on/off status and the brightness of the light bulb
   3. Choose different scenes by by clicking the corresponding button
