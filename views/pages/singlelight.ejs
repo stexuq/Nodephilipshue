@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+    <script>
+        
+        $(document).ready(function() {
+            $('#btn').on('click', function() {
+                var lightid = $("#lightid").text();
+                var res = lightid.split(" ");
+                var id = res[2];
+                var onstate = $("input[type=radio]:checked").val();
+                if (onstate == 'false') {
+                    onstate = false;
+                } else {
+                    onstate = true;
+                }
+                var bright = $("input[type=range]").val();
+                bright = parseInt(bright);
+                
+                var body = {
+                    "on" : onstate,
+                    "bri": bright
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: '/lights/' + id,
+                    data: JSON.stringify({ data: body }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(resultData) {
+                        //console.log(resultData);
+                    }
+                });
+            });
+
+            $('#workbtn').on('click', function() {
+                var lightid = $("#lightid").text();
+                var res = lightid.split(" ");
+                var id = res[2];
+                var body = {
+                    "on" : true,
+                    "bri": 254
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: '/lights/' + id,
+                    data: JSON.stringify({ data: body }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(resultData) {
+                        //console.log(resultData);
+                    }
+                });
+            });
+
+            $('#readbtn').on('click', function() {
+                var lightid = $("#lightid").text();
+                var res = lightid.split(" ");
+                var id = res[2];
+                var body = {
+                    "on" : true,
+                    "bri": 150
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: '/lights/' + id,
+                    data: JSON.stringify({ data: body }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(resultData) {
+                        //console.log(resultData);
+                    }
+                });
+            });
+
+            $('#relaxbtn').on('click', function() {
+                var lightid = $("#lightid").text();
+                var res = lightid.split(" ");
+                var id = res[2];
+                var body = {
+                    "on" : true,
+                    "bri": 50
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: '/lights/' + id,
+                    data: JSON.stringify({ data: body }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(resultData) {
+                        //console.log(resultData);
+                    }
+                });
+            });
+        });
+
+        function foo() {
+            alert("Submit button clicked!");
+        }
+        
+    </script>
+        <%- include('../partials/light.ejs', {data: lightinfo}); %>
+        <div class="container">
+            <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2> Change Light States </h2>
+                    <form>
+                        <b> State: </b> <br>
+                        <input type="radio" name="state" value="true" checked> <label> On </label> <br>
+                        <input type="radio" name="state" value="false"> <label> Off </label> <br><br>
+                        <b> Brightness: </b> <br>
+                        <div class="row">
+                            <div class="col-md-1"> <label> 0 </label>  </div>
+                            <div class="col-md-3">
+                            <input id="rangeslt" type ="range" min ="0" max="254" step ="1" value ="254"> 
+                            </div>
+                            <div class="col-md-1"><label> 254 </label> </div>
+                        </div> 
+                        <br>
+                        <!--<input type="submit" value="Submit" onclick="foo()">-->
+                        <input id="btn" type="submit" value="Submit" class="btn btn-primary" >
+                    </form>
+                </div>
+           
+                <div class="col-md-6">
+                    <h2> Change Scenes </h2>
+                    <br>
+                    <form>
+                        <input id="workbtn" type="submit" value="Work" class="btn btn-success" >
+                        <br> <br>
+                        <input id="readbtn" type="submit" value="Read" class="btn btn-info" >
+                        <br> <br>
+                        <input id="relaxbtn" type="submit" value="Relax" class="btn btn-warning" >
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>

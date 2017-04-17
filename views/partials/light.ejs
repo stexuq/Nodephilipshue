@@ -1,0 +1,26 @@
+
+<div class="container">
+    <div class="jumbotron">
+        <!--<% console.log(data) %>-->
+        <h1 id="lightid"> Light <%= data.id %> </h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Turned On</th>
+                <th>Brightness</th>
+                <th>Reachable</th>
+            </tr>
+
+            <tbody>
+            <tr id="row" class="<%= data.class %>">
+                <td> <%= data.on %></td>
+                <td><%= data.bri %></td>
+                <td><%= data.reachable %></td>
+            </tr>
+            </tbody>
+
+            </thead>
+        </table>
+    </div>
+          
+</div>
