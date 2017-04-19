@@ -3,11 +3,25 @@ Nodejs web app for controlling Philips Hue smart light bulb.
 
 [Demo on Youtube](https://www.youtube.com/watch?v=D3yi0Y2WkGA)
 
+## prerequisites
+- Set up Philips Hue light bulbs and the Philip Hue bridge, make sure you can control philips hue light with mobile apps (iOS or Android)
+- Go to https://www.developers.meethue.com/documentation/getting-started to find out the IP address of the bridge on your network. 
+- Substitute ```<bridge_ip_address> ``` to the actual ip address and go to ```http://<bridge_ip_address>/debug/clip.html ``` 
+- Follow all instructions on https://www.developers.meethue.com/documentation/getting-started to obtain a user name
+- Be able to use curl commands to control philip hue lights directly.
+
 ## how to run the express server
 Open your terminal window, run the following commands:
 ```
 git clone https://github.com/QianXuX/Nodephilipshue/
 npm install
+```
+open hue-express-new.js, substitute 
+
+``` urlOri = "http://192.168.1.6/api/cJ23p6wZNUarNRb5Y6SsY5aCyDhVRaIjtg2qC5Xh/lights/";``` with your actual hue bridge ip address. 
+
+Then, run:
+```
 node hue-express-new.js
 ```
 
