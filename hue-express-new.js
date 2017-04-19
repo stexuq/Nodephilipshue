@@ -28,11 +28,8 @@ router.route("/about")
 
 router.route('/alllights')
     .get(function(req, res) {
-
         var url = urlOri;
-        //var url = +id;
         //console.log(url);  
-
         var options = {
             uri: url,
             json: true
@@ -58,21 +55,16 @@ router.route('/alllights')
 
 router.route('/lights/:id')
     .post(function(req, res) {
-        // need ->  
         //console.log(req.body);
-        
         var id = req.params.id;
         var data = req.body.data;
         //console.log(data);
-
         state = data["on"];
         //console.log(state);
         bright = data["bri"];
         //console.log(bright);
-
         var url = urlOri + id + "/state/";
         //console.log(url);  
-
         var options = {
             method: 'PUT',
             uri: url,
@@ -91,10 +83,6 @@ router.route('/lights/:id')
             console.log(err);
             res.send("bad operation.");
         });
-
-        //res.json(req.body);    // echo the result back
-        
-
     })
     .get(function(req, res) {
         var id = req.params.id;

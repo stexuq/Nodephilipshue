@@ -11,13 +11,17 @@
 
     <main>
         <div class="container">
-            <% lights.forEach((light) => { %>
-                <div class="list-group-item">
-                <a href="/lights/<%= light.id %>" > Light <%= light.id %> </a>
+            <div class="jumbotron">
+                <h1>All Lights</h1>
                 <br>
-                Turned On: <%= light.on %>
-                </div>
-            <% }) %>
+                <% lights.forEach((light) => { %>
+                    <div class="list-group-item">
+                    <a href="/lights/<%= light.id %>" > Light <%= light.id %> </a>
+                    <br>
+                    Turned On: <%= light.on %>
+                    </div>
+                <% }) %>
+            </div>
         </div>
     </main>
 
